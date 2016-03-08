@@ -1,18 +1,18 @@
 //
-//  AppDelegate.m
+//  AAIAppDelegate.m
 //  Acronyms
 //
-//  Created by Dennis Birch on 3/8/16.
-//  Copyright © 2016 Dennis Birch. All rights reserved.
+//  Created by Dennis Birch on 3/2/16.
+//  Copyright (c) 2016 Dennis Birch. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "AAIAppDelegate.h"
 
-@interface AppDelegate ()
+@interface AAIAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation AAIAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
