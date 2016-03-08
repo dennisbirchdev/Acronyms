@@ -8,10 +8,11 @@
 
 #import "AAIDataManager.h"
 #import "AAINetworkSessionManager.h"
+#import "AAIAcronymItem.h"
 
 @implementation AAIDataManager
 
-+ (void)lookupEntry:(NSString *)entry
++ (void)lookupEntry:(NSString *)entry completion:(void (^) (NSArray *results, NSError *error)) completion
 {
 	NSParameterAssert(entry.length > 0);
 	
@@ -21,14 +22,22 @@
 										parameters:params
 										  progress:nil // connect to HUD
 										   success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-											   // success code
-											   NSLog(@"Succeeded with response: %@", responseObject);
+											   NSMutableArray *output = [NSMutableArray new];
+											   NSArray *contentArray = responseObject;
+											   NSDictionary *content = contentArray.firstObject;
+											   contentArray = content[@"lfs"];
+											   for (NSDictionary *item in contentArray) {
+												   AAIAcronymItem *acronym = [[AAIAcronymItem alloc] initWithLFContent:item];
+												   [output addObject:acronym];
+											   }
+											   
+											   completion([output copy], nil);
 										   }
 										   failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 											   // failure code
 											   NSLog(@"Failed with error: %@", [error localizedDescription]);
+											   completion(nil, error);
 										   }];
-	
 }
 
 @end

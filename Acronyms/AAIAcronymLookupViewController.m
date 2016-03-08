@@ -8,6 +8,7 @@
 
 #import "AAIAcronymLookupViewController.h"
 #import "AAIDataManager.h"
+#import "AAIAcronymItem.h"
 
 @interface AAIAcronymLookupViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -28,12 +29,10 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldValueChanged:) name:UITextFieldTextDidChangeNotification object:nil];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear:animated];
-	
-	[AAIDataManager lookupEntry:@"SWAT"];
-}
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//	[super viewDidAppear:animated];
+//}
 
 - (void)dealloc
 {
@@ -57,6 +56,8 @@
 {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 	
+	cell.textLabel.text = self.data[indexPath.row];
+	
 	return cell;
 }
 
@@ -64,7 +65,35 @@
 
 - (IBAction)lookupButtonTapped:(id)sender
 {
+	self.tableView.hidden = YES;
 	
+	__weak typeof(self) weakSelf = self;
+	
+	[AAIDataManager lookupEntry:self.termField.text completion:^(NSArray *results, NSError *error) {
+		if (error != nil) {
+			
+			// show error message to user
+			
+			NSLog(@"Error fetching term \"%@\": %@", weakSelf.termField.text, [error localizedDescription]);
+			return;
+		}
+		
+		if (results.count == 0) {
+			// show No Results message
+		}
+		
+		NSMutableArray *output = [NSMutableArray new];
+		for (AAIAcronymItem *item in results) {
+			[output addObject:item.longForm];
+		}
+		
+		if (weakSelf != nil) {
+			__strong typeof(weakSelf) strongSelf = weakSelf;
+			strongSelf.data = [output copy];
+			strongSelf.tableView.hidden = NO;
+			[strongSelf.tableView reloadData];
+		}
+	}];
 }
 
 #pragma mark - Notifications

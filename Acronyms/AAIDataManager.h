@@ -10,6 +10,6 @@
 
 @interface AAIDataManager : NSObject
 
-+ (void)lookupEntry:(NSString *)entry;
++ (void)lookupEntry:(NSString *)entry completion:(void (^) (NSArray *results, NSError *error)) completion;
 
 @end
