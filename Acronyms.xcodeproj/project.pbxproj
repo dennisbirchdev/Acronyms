@@ -23,6 +23,9 @@
 		9549695D1C8F376F0094C0CB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969531C8F376F0094C0CB /* MBProgressHUD.m */; };
 		954969601C8F381D0094C0CB /* AAIDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9549695F1C8F381D0094C0CB /* AAIDataManager.m */; };
 		954969631C8F48F10094C0CB /* AAIAcronymItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969621C8F48F10094C0CB /* AAIAcronymItem.m */; };
+		954969661C8F51870094C0CB /* AAIAcronymItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969651C8F51870094C0CB /* AAIAcronymItemTableViewCell.m */; };
+		9549696B1C8F5D580094C0CB /* AAIResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9549696A1C8F5D580094C0CB /* AAIResultsTableViewController.m */; };
+		954969711C8F67330094C0CB /* AAIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969701C8F67330094C0CB /* AAIDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,12 @@
 		9549695F1C8F381D0094C0CB /* AAIDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIDataManager.m; sourceTree = "<group>"; };
 		954969611C8F48F10094C0CB /* AAIAcronymItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAIAcronymItem.h; sourceTree = "<group>"; };
 		954969621C8F48F10094C0CB /* AAIAcronymItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIAcronymItem.m; sourceTree = "<group>"; };
+		954969641C8F51870094C0CB /* AAIAcronymItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAIAcronymItemTableViewCell.h; sourceTree = "<group>"; };
+		954969651C8F51870094C0CB /* AAIAcronymItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIAcronymItemTableViewCell.m; sourceTree = "<group>"; };
+		954969691C8F5D580094C0CB /* AAIResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAIResultsTableViewController.h; sourceTree = "<group>"; };
+		9549696A1C8F5D580094C0CB /* AAIResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIResultsTableViewController.m; sourceTree = "<group>"; };
+		9549696F1C8F67330094C0CB /* AAIDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAIDetailsViewController.h; sourceTree = "<group>"; };
+		954969701C8F67330094C0CB /* AAIDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,16 +99,22 @@
 			isa = PBXGroup;
 			children = (
 				9549692F1C8F36EE0094C0CB /* Main.storyboard */,
-				9549693D1C8F376F0094C0CB /* AAIAcronymLookupViewController.h */,
-				9549693E1C8F376F0094C0CB /* AAIAcronymLookupViewController.m */,
 				9549693F1C8F376F0094C0CB /* AAIAppDelegate.h */,
 				954969401C8F376F0094C0CB /* AAIAppDelegate.m */,
+				9549693D1C8F376F0094C0CB /* AAIAcronymLookupViewController.h */,
+				9549693E1C8F376F0094C0CB /* AAIAcronymLookupViewController.m */,
+				954969691C8F5D580094C0CB /* AAIResultsTableViewController.h */,
+				9549696A1C8F5D580094C0CB /* AAIResultsTableViewController.m */,
+				9549696F1C8F67330094C0CB /* AAIDetailsViewController.h */,
+				954969701C8F67330094C0CB /* AAIDetailsViewController.m */,
 				954969411C8F376F0094C0CB /* AAINetworkSessionManager.h */,
 				954969421C8F376F0094C0CB /* AAINetworkSessionManager.m */,
 				9549695E1C8F381D0094C0CB /* AAIDataManager.h */,
 				9549695F1C8F381D0094C0CB /* AAIDataManager.m */,
 				954969611C8F48F10094C0CB /* AAIAcronymItem.h */,
 				954969621C8F48F10094C0CB /* AAIAcronymItem.m */,
+				954969641C8F51870094C0CB /* AAIAcronymItemTableViewCell.h */,
+				954969651C8F51870094C0CB /* AAIAcronymItemTableViewCell.m */,
 				954969431C8F376F0094C0CB /* ThirdParty */,
 				954969321C8F36EE0094C0CB /* Assets.xcassets */,
 				954969341C8F36EE0094C0CB /* LaunchScreen.storyboard */,
@@ -223,7 +238,10 @@
 				954969551C8F376F0094C0CB /* AAIAppDelegate.m in Sources */,
 				954969601C8F381D0094C0CB /* AAIDataManager.m in Sources */,
 				954969561C8F376F0094C0CB /* AAINetworkSessionManager.m in Sources */,
+				954969711C8F67330094C0CB /* AAIDetailsViewController.m in Sources */,
 				954969631C8F48F10094C0CB /* AAIAcronymItem.m in Sources */,
+				9549696B1C8F5D580094C0CB /* AAIResultsTableViewController.m in Sources */,
+				954969661C8F51870094C0CB /* AAIAcronymItemTableViewCell.m in Sources */,
 				9549695D1C8F376F0094C0CB /* MBProgressHUD.m in Sources */,
 				954969571C8F376F0094C0CB /* AFHTTPSessionManager.m in Sources */,
 				9549695C1C8F376F0094C0CB /* AFURLSessionManager.m in Sources */,

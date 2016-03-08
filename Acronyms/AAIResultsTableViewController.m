@@ -1,0 +1,68 @@
+//
+//  AAIResultsTableViewController.m
+//  Acronyms
+//
+//  Created by Dennis Birch on 3/8/16.
+//  Copyright © 2016 Dennis Birch. All rights reserved.
+//
+
+#import "AAIResultsTableViewController.h"
+#import "AAIAcronymItemTableViewCell.h"
+#import "AAIDetailsViewController.h"
+#import "AAIAcronymItem.h"
+
+@interface AAIResultsTableViewController ()
+
+
+@end
+
+@implementation AAIResultsTableViewController
+
+static NSString * const kShowDetailSegue = @"ShowDetailSegue";
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+	
+	self.tableView.rowHeight = UITableViewAutomaticDimension;
+	self.tableView.estimatedRowHeight = 44.0;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITableViewDataSource
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+	return self.data.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	AAIAcronymItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+	
+	[cell configureWithAcronymItem:self.data[indexPath.row]];
+	
+	return cell;
+}
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:kShowDetailSegue]) {
+		AAIDetailsViewController *detailVC = segue.destinationViewController;
+		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+		detailVC.detailItem = self.data[indexPath.row];
+	}
+}
+
+
+@end
