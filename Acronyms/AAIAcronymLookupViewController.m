@@ -38,7 +38,20 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 											 selector:@selector(networkReachabilityChanged:)
 												 name:AFNetworkingReachabilityDidChangeNotification
 											   object:nil];
+	}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	
 	self.title = NSLocalizedString(@"Acronym Lookup", nil);
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+	[super viewWillDisappear:animated];
+	
+	self.title = NSLocalizedString(@"Lookup", nil);
 }
 
 - (void)dealloc
@@ -50,6 +63,8 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
 }
+
+
 
 
 #pragma mark - Actions

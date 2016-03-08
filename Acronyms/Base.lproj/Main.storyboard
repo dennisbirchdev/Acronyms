@@ -65,10 +65,10 @@
             </objects>
             <point key="canvasLocation" x="1390" y="595"/>
         </scene>
-        <!--Results Table View Controller-->
+        <!--Results-->
         <scene sceneID="uRZ-1d-VvP">
             <objects>
-                <tableViewController id="9e8-GJ-lv8" customClass="AAIResultsTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Results" id="9e8-GJ-lv8" customClass="AAIResultsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CDQ-rq-vMC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -111,10 +111,10 @@
             </objects>
             <point key="canvasLocation" x="2163" y="595"/>
         </scene>
-        <!--Details View Controller-->
+        <!--Details-->
         <scene sceneID="hOo-a3-3TF">
             <objects>
-                <viewController id="9hS-Tb-R7L" customClass="AAIDetailsViewController" sceneMemberID="viewController">
+                <viewController title="Details" id="9hS-Tb-R7L" customClass="AAIDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="05g-Gw-wiY"/>
                         <viewControllerLayoutGuide type="bottom" id="qvc-4q-aZc"/>
@@ -159,6 +159,13 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alI-si-tmO">
+                                <rect key="frame" x="239" y="550" width="122" height="30"/>
+                                <state key="normal" title="Wikipedia Lookup"/>
+                                <connections>
+                                    <segue destination="wPl-am-lBg" kind="show" identifier="WikepediaLookupSegue" id="eFo-2J-1U2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -167,6 +174,7 @@
                             <constraint firstItem="S9p-e9-j9P" firstAttribute="top" secondItem="dm0-d4-3lv" secondAttribute="bottom" constant="12" id="9Ar-a1-94X"/>
                             <constraint firstItem="hdB-Rv-hMP" firstAttribute="top" secondItem="PBF-ag-sYj" secondAttribute="bottom" constant="20" id="AFS-I6-t8n"/>
                             <constraint firstItem="yqn-mn-XHU" firstAttribute="leading" secondItem="5bv-1g-oYf" secondAttribute="leadingMargin" constant="8" id="Fj6-YH-Ka4"/>
+                            <constraint firstItem="alI-si-tmO" firstAttribute="centerX" secondItem="5bv-1g-oYf" secondAttribute="centerX" id="FxG-FU-WMD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="S9p-e9-j9P" secondAttribute="trailing" constant="8" id="Mgk-fO-iIa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hdB-Rv-hMP" secondAttribute="trailing" constant="8" id="NZF-dk-MAW"/>
                             <constraint firstItem="yJ1-UC-QAv" firstAttribute="leading" secondItem="5bv-1g-oYf" secondAttribute="leadingMargin" constant="8" id="Ng6-5B-mTM"/>
@@ -175,6 +183,7 @@
                             <constraint firstItem="dm0-d4-3lv" firstAttribute="top" secondItem="yJ1-UC-QAv" secondAttribute="bottom" constant="8" id="c4C-rA-A2N"/>
                             <constraint firstItem="PBF-ag-sYj" firstAttribute="leading" secondItem="5bv-1g-oYf" secondAttribute="leadingMargin" constant="8" id="cXC-tP-Q2v"/>
                             <constraint firstItem="dm0-d4-3lv" firstAttribute="leading" secondItem="5bv-1g-oYf" secondAttribute="leadingMargin" constant="8" id="dfz-pn-0A6"/>
+                            <constraint firstItem="qvc-4q-aZc" firstAttribute="top" secondItem="alI-si-tmO" secondAttribute="bottom" constant="20" id="dit-zq-KEb"/>
                             <constraint firstItem="hdB-Rv-hMP" firstAttribute="leading" secondItem="5bv-1g-oYf" secondAttribute="leadingMargin" constant="8" id="i3J-TC-D5M"/>
                             <constraint firstItem="PBF-ag-sYj" firstAttribute="top" secondItem="S9p-e9-j9P" secondAttribute="bottom" constant="8" id="iiX-En-4fL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yJ1-UC-QAv" secondAttribute="trailing" constant="8" id="k8A-86-Qhs"/>
@@ -192,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="2980" y="595"/>
         </scene>
-        <!--View Controller-->
+        <!--Wikipedia Search-->
         <scene sceneID="ret-yO-G21">
             <objects>
-                <viewController id="wPl-am-lBg" sceneMemberID="viewController">
+                <viewController title="Wikipedia Search" id="wPl-am-lBg" customClass="AAIWikiMediaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d0F-0W-Az2"/>
                         <viewControllerLayoutGuide type="bottom" id="kKE-Gc-eoh"/>
@@ -203,8 +212,23 @@
                     <view key="view" contentMode="scaleToFill" id="onM-RU-WRc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phH-ek-gMO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="phH-ek-gMO" secondAttribute="trailing" id="DI2-S1-Yzn"/>
+                            <constraint firstItem="phH-ek-gMO" firstAttribute="leading" secondItem="onM-RU-WRc" secondAttribute="leading" id="VcP-dV-eZk"/>
+                            <constraint firstItem="phH-ek-gMO" firstAttribute="top" secondItem="onM-RU-WRc" secondAttribute="top" id="pBQ-l8-CyK"/>
+                            <constraint firstItem="kKE-Gc-eoh" firstAttribute="top" secondItem="phH-ek-gMO" secondAttribute="bottom" id="qgZ-2W-8x2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="phH-ek-gMO" id="pb7-2x-gbJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ba-Dh-rxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

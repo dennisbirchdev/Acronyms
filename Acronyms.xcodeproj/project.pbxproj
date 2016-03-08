@@ -26,6 +26,7 @@
 		954969661C8F51870094C0CB /* AAIAcronymItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969651C8F51870094C0CB /* AAIAcronymItemTableViewCell.m */; };
 		9549696B1C8F5D580094C0CB /* AAIResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9549696A1C8F5D580094C0CB /* AAIResultsTableViewController.m */; };
 		954969711C8F67330094C0CB /* AAIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969701C8F67330094C0CB /* AAIDetailsViewController.m */; };
+		954969771C8F92390094C0CB /* AAIWikiMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969761C8F92390094C0CB /* AAIWikiMediaViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		9549696A1C8F5D580094C0CB /* AAIResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIResultsTableViewController.m; sourceTree = "<group>"; };
 		9549696F1C8F67330094C0CB /* AAIDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAIDetailsViewController.h; sourceTree = "<group>"; };
 		954969701C8F67330094C0CB /* AAIDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIDetailsViewController.m; sourceTree = "<group>"; };
+		954969751C8F92390094C0CB /* AAIWikiMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAIWikiMediaViewController.h; sourceTree = "<group>"; };
+		954969761C8F92390094C0CB /* AAIWikiMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIWikiMediaViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 				9549696A1C8F5D580094C0CB /* AAIResultsTableViewController.m */,
 				9549696F1C8F67330094C0CB /* AAIDetailsViewController.h */,
 				954969701C8F67330094C0CB /* AAIDetailsViewController.m */,
+				954969751C8F92390094C0CB /* AAIWikiMediaViewController.h */,
+				954969761C8F92390094C0CB /* AAIWikiMediaViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				954969571C8F376F0094C0CB /* AFHTTPSessionManager.m in Sources */,
 				9549695C1C8F376F0094C0CB /* AFURLSessionManager.m in Sources */,
 				954969541C8F376F0094C0CB /* AAIAcronymLookupViewController.m in Sources */,
+				954969771C8F92390094C0CB /* AAIWikiMediaViewController.m in Sources */,
 				954969581C8F376F0094C0CB /* AFNetworkReachabilityManager.m in Sources */,
 				954969281C8F36EE0094C0CB /* main.m in Sources */,
 				9549695A1C8F376F0094C0CB /* AFURLRequestSerialization.m in Sources */,

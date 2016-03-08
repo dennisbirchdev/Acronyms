@@ -8,6 +8,7 @@
 
 #import "AAIDetailsViewController.h"
 #import "AAIAcronymItem.h"
+#import "AAIWikiMediaViewController.h"
 
 @interface AAIDetailsViewController ()
 
@@ -18,6 +19,8 @@
 @end
 
 @implementation AAIDetailsViewController
+
+static NSString * const kWikepediaLookupSegue = @"WikepediaLookupSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,6 +33,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:kWikepediaLookupSegue]) {
+		AAIWikiMediaViewController *webVC = segue.destinationViewController;
+		webVC.lookupTerm = self.detailItem.longForm;
+	}
 }
 
 @end
