@@ -82,7 +82,7 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 - (void)showFetchErrorMessage
 {
 	NSString *title = NSLocalizedString(@"Error", nil);
-	NSString *message = NSLocalizedString(@"We experienced an unexpected error while attempting this lookup. Please try again later", nil);
+	NSString *message = NSLocalizedString(@"We experienced an unexpected error while attempting this lookup. Please try again later.", nil);
 	UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
 	UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil];
 	[alert addAction:okAction];
@@ -92,7 +92,7 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 - (void)showNoResultsMessageForTerm:(NSString *)term
 {
 	NSString *title = NSLocalizedString(@"No Results", nil);
-	NSString *localizedString = NSLocalizedString(@"There were no results for the term \"%@\"", nil);
+	NSString *localizedString = NSLocalizedString(@"There were no results for the term \"%@\".", nil);
 	NSString *message = [NSString localizedStringWithFormat:localizedString, term];
 	UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
 	UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil];

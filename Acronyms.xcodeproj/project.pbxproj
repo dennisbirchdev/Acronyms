@@ -101,20 +101,9 @@
 				9549692F1C8F36EE0094C0CB /* Main.storyboard */,
 				9549693F1C8F376F0094C0CB /* AAIAppDelegate.h */,
 				954969401C8F376F0094C0CB /* AAIAppDelegate.m */,
-				9549693D1C8F376F0094C0CB /* AAIAcronymLookupViewController.h */,
-				9549693E1C8F376F0094C0CB /* AAIAcronymLookupViewController.m */,
-				954969691C8F5D580094C0CB /* AAIResultsTableViewController.h */,
-				9549696A1C8F5D580094C0CB /* AAIResultsTableViewController.m */,
-				9549696F1C8F67330094C0CB /* AAIDetailsViewController.h */,
-				954969701C8F67330094C0CB /* AAIDetailsViewController.m */,
-				954969411C8F376F0094C0CB /* AAINetworkSessionManager.h */,
-				954969421C8F376F0094C0CB /* AAINetworkSessionManager.m */,
-				9549695E1C8F381D0094C0CB /* AAIDataManager.h */,
-				9549695F1C8F381D0094C0CB /* AAIDataManager.m */,
-				954969611C8F48F10094C0CB /* AAIAcronymItem.h */,
-				954969621C8F48F10094C0CB /* AAIAcronymItem.m */,
-				954969641C8F51870094C0CB /* AAIAcronymItemTableViewCell.h */,
-				954969651C8F51870094C0CB /* AAIAcronymItemTableViewCell.m */,
+				954969741C8F7CB30094C0CB /* ViewControllers */,
+				954969731C8F7CA20094C0CB /* Model & Services */,
+				954969721C8F7C8F0094C0CB /* Views */,
 				954969431C8F376F0094C0CB /* ThirdParty */,
 				954969321C8F36EE0094C0CB /* Assets.xcassets */,
 				954969341C8F36EE0094C0CB /* LaunchScreen.storyboard */,
@@ -160,6 +149,41 @@
 				954969511C8F376F0094C0CB /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		954969721C8F7C8F0094C0CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				954969641C8F51870094C0CB /* AAIAcronymItemTableViewCell.h */,
+				954969651C8F51870094C0CB /* AAIAcronymItemTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		954969731C8F7CA20094C0CB /* Model & Services */ = {
+			isa = PBXGroup;
+			children = (
+				954969411C8F376F0094C0CB /* AAINetworkSessionManager.h */,
+				954969421C8F376F0094C0CB /* AAINetworkSessionManager.m */,
+				9549695E1C8F381D0094C0CB /* AAIDataManager.h */,
+				9549695F1C8F381D0094C0CB /* AAIDataManager.m */,
+				954969611C8F48F10094C0CB /* AAIAcronymItem.h */,
+				954969621C8F48F10094C0CB /* AAIAcronymItem.m */,
+			);
+			name = "Model & Services";
+			sourceTree = "<group>";
+		};
+		954969741C8F7CB30094C0CB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9549693D1C8F376F0094C0CB /* AAIAcronymLookupViewController.h */,
+				9549693E1C8F376F0094C0CB /* AAIAcronymLookupViewController.m */,
+				954969691C8F5D580094C0CB /* AAIResultsTableViewController.h */,
+				9549696A1C8F5D580094C0CB /* AAIResultsTableViewController.m */,
+				9549696F1C8F67330094C0CB /* AAIDetailsViewController.h */,
+				954969701C8F67330094C0CB /* AAIDetailsViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
