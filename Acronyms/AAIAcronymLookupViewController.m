@@ -10,11 +10,14 @@
 #import "AAIDataManager.h"
 #import "AAIResultsTableViewController.h"
 #import "MBProgressHUD.h"
+#import "AFNetworking.h"
 
 @interface AAIAcronymLookupViewController () <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextField *termField;
 @property (nonatomic, weak) IBOutlet UIButton *lookupButton;
+
+@property (nonatomic, assign) AFNetworkReachabilityStatus networkStatus;
 
 @property (nonatomic, strong) NSArray *data;
 
@@ -27,7 +30,14 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textFieldValueChanged:) name:UITextFieldTextDidChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(textFieldValueChanged:)
+												 name:UITextFieldTextDidChangeNotification
+											   object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(networkReachabilityChanged:)
+												 name:AFNetworkingReachabilityDidChangeNotification
+											   object:nil];
 	self.title = NSLocalizedString(@"Acronym Lookup", nil);
 }
 
@@ -83,10 +93,14 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 {
 	NSString *title = NSLocalizedString(@"Error", nil);
 	NSString *message = NSLocalizedString(@"We experienced an unexpected error while attempting this lookup. Please try again later.", nil);
-	UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-	UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil];
-	[alert addAction:okAction];
-	[self presentViewController:alert animated:YES completion:nil];
+	[self showBasicAlertWithTitle:title message:message];
+}
+
+- (void)showNoInternetAvailableAlert
+{
+	NSString *title = NSLocalizedString(@"No Internet Connection", nil);
+	NSString *message = NSLocalizedString(@"You are not connected to the Internet. Please try again later.", nil);
+	[self showBasicAlertWithTitle:title message:message];
 }
 
 - (void)showNoResultsMessageForTerm:(NSString *)term
@@ -94,6 +108,12 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 	NSString *title = NSLocalizedString(@"No Results", nil);
 	NSString *localizedString = NSLocalizedString(@"There were no results for the term \"%@\".", nil);
 	NSString *message = [NSString localizedStringWithFormat:localizedString, term];
+	[self showBasicAlertWithTitle:title message:message];
+}
+
+
+- (void)showBasicAlertWithTitle:(NSString *)title message:(NSString *)message
+{
 	UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
 	UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleCancel handler:nil];
 	[alert addAction:okAction];
@@ -116,7 +136,21 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 - (void)textFieldValueChanged:(NSNotification *)notification
 {
 	UITextField *textField = notification.object;
-	self.lookupButton.enabled = textField.text.length > 0;
+	self.lookupButton.enabled = textField.text.length > 0 &&
+		self.networkStatus >= AFNetworkReachabilityStatusReachableViaWWAN;
+}
+
+- (void)networkReachabilityChanged:(NSNotification *)notification
+{
+	self.lookupButton.enabled = self.termField.text.length > 0;
+	
+	self.networkStatus = (AFNetworkReachabilityStatus)[notification.userInfo[AFNetworkingReachabilityNotificationStatusItem] integerValue];
+	NSLog(@"Network reachability changed to: %ld", self.networkStatus);
+	if (self.networkStatus < AFNetworkReachabilityStatusReachableViaWWAN) {
+		NSLog(@"Not connected to the Internet.");
+		[self showNoInternetAvailableAlert];
+		self.lookupButton.enabled = NO;
+	}
 }
 
 #pragma mark - UITextFieldDelegate
