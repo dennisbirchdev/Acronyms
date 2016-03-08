@@ -7,8 +7,9 @@
 //
 
 #import "AAIWikiMediaViewController.h"
+#import "MBProgressHUD.h"
 
-@interface AAIWikiMediaViewController ()
+@interface AAIWikiMediaViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
 
@@ -20,7 +21,9 @@ static NSString * const kBaseURL = @"https://en.wikipedia.org/wiki/";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	
+	self.webView.delegate = self;
+	
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,11 +38,19 @@ static NSString * const kBaseURL = @"https://en.wikipedia.org/wiki/";
 	NSURL *url = [NSURL URLWithString:[kBaseURL stringByAppendingString:[self underScoreString:self.lookupTerm]]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	[self.webView loadRequest:request];
+	[MBProgressHUD showHUDAddedTo:self.view animated: YES];
 }
 
 - (NSString *)underScoreString:(NSString *)incomingString
 {
 	return [incomingString stringByReplacingOccurrencesOfString:@" " withString:@"_"];
+}
+
+#pragma mark - UIWebViewDelegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+	[MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end
