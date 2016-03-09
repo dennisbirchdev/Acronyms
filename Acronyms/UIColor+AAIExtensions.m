@@ -12,7 +12,7 @@
 
 + (UIColor *)aai_backgroundColor
 {
-	return [UIColor colorWithRed:152.0/255.0 green:229.0/255.0 blue:132.0/255.0 alpha:0.8];
+	return [UIColor colorWithRed:211.0/255.0 green:238.0/255.0 blue:223.0/255.0 alpha:1.0];
 }
 
 @end

@@ -20,8 +20,6 @@
 
 @property (nonatomic, assign) AFNetworkReachabilityStatus networkStatus;
 
-@property (nonatomic, strong) NSArray *data;
-
 @end
 
 @implementation AAIAcronymLookupViewController
@@ -47,6 +45,7 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 {
 	[super viewWillAppear:animated];
 	
+	// when we're on this view, use the "full title"
 	self.title = NSLocalizedString(@"Acronym Lookup", nil);
 }
 
@@ -54,6 +53,7 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 {
 	[super viewWillDisappear:animated];
 	
+	// when we pop on the list view, use an abbreviated title
 	self.title = NSLocalizedString(@"Lookup", nil);
 }
 
@@ -74,6 +74,7 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 
 - (IBAction)lookupButtonTapped:(id)sender
 {
+	// show the user we're working on their request
 	NSString *pleaseWait = NSLocalizedString(@"Please wait", nil);
 	[[AAIActivityIndicatorManager sharedInstance] displayIndicatorInView:self.view withText:pleaseWait];
 	
@@ -82,7 +83,10 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 	__weak typeof(self) weakSelf = self;
 	
 	[AAIDataManager lookupEntry:self.termField.text completion:^(NSArray *results, NSError *error) {
+
+		// we've received a respons or an error, so dismiss the activity indicator
 		[[AAIActivityIndicatorManager sharedInstance] dismisssIndicator];
+		
 		if (error != nil) {
 			NSLog(@"Error fetching term \"%@\": %@", weakSelf.termField.text, [error localizedDescription]);
 			// show error message to user
@@ -94,19 +98,18 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 
 		__strong typeof(weakSelf) strongSelf = weakSelf;
 		if (strongSelf != nil) {
-			strongSelf.data = [NSArray new];
-			
 			if (results.count == 0) {
 				[strongSelf showNoResultsMessageForTerm:weakSelf.termField.text];
 				return;
 			}
 			
+			// display the results in the resultsTableViewController
 			[strongSelf performSegueWithIdentifier:kDisplayResultsSegue sender:results];
 		}
 	}];
 }
 
-#pragma mark - Helpers
+#pragma mark - Alerts
 
 - (void)showFetchErrorMessage
 {
@@ -161,6 +164,7 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 
 - (void)networkReachabilityChanged:(NSNotification *)notification
 {
+	// enable the Lookup button by default
 	self.lookupButton.enabled = self.termField.text.length > 0;
 	
 	self.networkStatus = (AFNetworkReachabilityStatus)[notification.userInfo[AFNetworkingReachabilityNotificationStatusItem] integerValue];
@@ -168,6 +172,7 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 	if (self.networkStatus < AFNetworkReachabilityStatusReachableViaWWAN) {
 		NSLog(@"Not connected to the Internet.");
 		[self showNoInternetAvailableAlert];
+		// disable the Lookup button when we don't have network reachability
 		self.lookupButton.enabled = NO;
 	}
 }

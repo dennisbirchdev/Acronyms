@@ -26,6 +26,7 @@ static NSString * const kShowDetailSegue = @"ShowDetailSegue";
 	
 	self.tableView.backgroundColor = [UIColor aai_backgroundColor];
 	
+	// make the table view cells resizable
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
 	self.tableView.estimatedRowHeight = 44.0;
 }

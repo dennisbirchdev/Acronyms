@@ -19,7 +19,9 @@
 - (void)awakeFromNib
 {
 	self.backgroundColor = [UIColor aai_backgroundColor];
-	UIImage *image = [AAIAcronymItemTableViewCell disclosureImage];
+
+	// use a custom image for the disclosure arrow to better stand out
+	UIImage *image = [UIImage imageNamed:@"Disclosure"];
 	UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 	self.accessoryView = imageView;
 }
@@ -27,11 +29,6 @@
 - (void)configureWithAcronymItem:(AAIAcronymItem *)item
 {
 	self.titleLabel.text = [item.longForm capitalizedStringWithLocale:[NSLocale systemLocale]];
-}
-
-+ (UIImage *)disclosureImage
-{
-	return [UIImage imageNamed:@"Disclosure"];
 }
 
 @end

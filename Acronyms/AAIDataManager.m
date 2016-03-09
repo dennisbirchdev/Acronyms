@@ -18,24 +18,29 @@
 	
 	NSDictionary *params = @{@"sf" : entry};
 	
+	// call the service's query API to receive a JSON response with results of looking up our search term
 	[[AAINetworkSessionManager sharedInstance] GET:@""
 										parameters:params
 										  progress:nil // connect to HUD
 										   success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+											   // create a mutable array to hold our return value
 											   NSMutableArray *output = [NSMutableArray new];
+											   // break down the response object to get to the good stuff
 											   NSArray *contentArray = responseObject;
 											   NSDictionary *content = contentArray.firstObject;
 											   contentArray = content[@"lfs"];
 											   for (NSDictionary *item in contentArray) {
+												   // turn each item in the content array into an AAIAcronymItem to return
 												   AAIAcronymItem *acronym = [[AAIAcronymItem alloc] initWithLFContent:item];
 												   [output addObject:acronym];
 											   }
-											   
+											   // call the completion function with our results
 											   completion([output copy], nil);
 										   }
 										   failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 											   // failure code
 											   NSLog(@"Failed with error: %@", [error localizedDescription]);
+											   // call the completion function with the error returned
 											   completion(nil, error);
 										   }];
 }

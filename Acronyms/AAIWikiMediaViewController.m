@@ -39,11 +39,14 @@ static NSString * const kBaseURL = @"https://en.wikipedia.org/wiki/";
 {
 	[super viewWillAppear:animated];
 	
+	// load the Wikipedia page for our term
 	NSURL *url = [NSURL URLWithString:[kBaseURL stringByAppendingString:[self.lookupTerm aai_underScoreString]]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	[self.webView loadRequest:request];
-	NSString *pleaseWait = NSLocalizedString(@"Please wait", nil);
-	[[AAIActivityIndicatorManager sharedInstance] displayIndicatorInView:self.overlay withText:pleaseWait];
+	
+	// and show an activity indicator until it finishes loading
+	NSString *loading = NSLocalizedString(@"Loading...", nil);
+	[[AAIActivityIndicatorManager sharedInstance] displayIndicatorInView:self.overlay withText:loading];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -51,7 +54,10 @@ static NSString * const kBaseURL = @"https://en.wikipedia.org/wiki/";
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
 	[[AAIActivityIndicatorManager sharedInstance] dismisssIndicator];
-	self.overlay.alpha = 0;
+	// fade out the overlay
+	[UIView animateWithDuration:0.2 animations:^{
+		self.overlay.alpha = 0;
+	}];
 }
 
 @end

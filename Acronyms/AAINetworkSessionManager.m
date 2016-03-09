@@ -37,6 +37,7 @@ static NSString * const kAcronymServiceURI = @"http://www.nactem.ac.uk/software/
 
 - (void)addTextPlainContentType
 {
+	// the service returns its response as plain text, so set up AFNetworking to accept that
 	AFHTTPResponseSerializer *serializer = self.responseSerializer;
 	NSSet *contentTypes = serializer.acceptableContentTypes;
 	NSMutableArray *mutableTypes = [[contentTypes allObjects] mutableCopy];
