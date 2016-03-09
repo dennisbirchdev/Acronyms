@@ -14,6 +14,7 @@
 
 @interface AAIResultsTableViewController ()
 
+@property (nonatomic, weak) IBOutlet UILabel *resultsLabel;
 
 @end
 
@@ -29,6 +30,15 @@ static NSString * const kShowDetailSegue = @"ShowDetailSegue";
 	// make the table view cells resizable
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
 	self.tableView.estimatedRowHeight = 44.0;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+	
+	NSString *localizedString = NSLocalizedString(@"Lookup term: %@", nil);
+	NSString *termLabelText = [NSString localizedStringWithFormat:localizedString, self.lookupTerm];
+	self.resultsLabel.text = termLabelText;
 }
 
 - (void)didReceiveMemoryWarning

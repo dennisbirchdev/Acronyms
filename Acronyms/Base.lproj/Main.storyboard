@@ -72,9 +72,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="3jZ-rv-IhO">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8E5-rm-mSu">
+                                    <rect key="frame" x="20" y="2" width="560" height="40"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="8E5-rm-mSu" firstAttribute="top" secondItem="3jZ-rv-IhO" secondAttribute="top" constant="2" id="3pQ-fN-dla"/>
+                                <constraint firstItem="8E5-rm-mSu" firstAttribute="leading" secondItem="3jZ-rv-IhO" secondAttribute="leading" constant="20" id="CVu-Xt-bnP"/>
+                                <constraint firstAttribute="trailing" secondItem="8E5-rm-mSu" secondAttribute="trailing" constant="20" id="bCO-nr-Ea4"/>
+                                <constraint firstAttribute="bottom" secondItem="8E5-rm-mSu" secondAttribute="bottom" constant="2" id="doc-NF-pxv"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="jbR-y7-gf7" customClass="AAIAcronymItemTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jbR-y7-gf7" id="GRW-Zz-8BD">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
@@ -105,6 +124,9 @@
                             <outlet property="delegate" destination="9e8-GJ-lv8" id="CN3-ac-PvO"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="resultsLabel" destination="8E5-rm-mSu" id="ufs-kA-lw3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3T3-Se-hZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

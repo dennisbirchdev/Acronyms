@@ -11,5 +11,6 @@
 @interface AAIResultsTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *data;
+@property (nonatomic, copy) NSString *lookupTerm;
 
 @end

@@ -150,6 +150,7 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 		NSParameterAssert([sender isKindOfClass:[NSArray class]]);
 		AAIResultsTableViewController *resultsVC = segue.destinationViewController;
 		resultsVC.data = sender;
+		resultsVC.lookupTerm = self.termField.text;
 	}
 }
 
