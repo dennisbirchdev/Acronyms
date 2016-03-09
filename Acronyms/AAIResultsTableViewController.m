@@ -10,6 +10,7 @@
 #import "AAIAcronymItemTableViewCell.h"
 #import "AAIDetailsViewController.h"
 #import "AAIAcronymItem.h"
+#import "UIColor+AAIExtensions.h"
 
 @interface AAIResultsTableViewController ()
 
@@ -22,6 +23,8 @@ static NSString * const kShowDetailSegue = @"ShowDetailSegue";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	self.tableView.backgroundColor = [UIColor aai_backgroundColor];
 	
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
 	self.tableView.estimatedRowHeight = 44.0;

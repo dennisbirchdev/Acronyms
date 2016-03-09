@@ -7,12 +7,14 @@
 //
 
 #import "AAIWikiMediaViewController.h"
-#import "MBProgressHUD.h"
+#import "AAIActivityIndicatorManager.h"
 #import "NSString+AAIExtensions.h"
+#import "UIColor+AAIExtensions.h"
 
 @interface AAIWikiMediaViewController () <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *webView;
+@property (nonatomic, weak) IBOutlet UIView *overlay;
 
 @end
 
@@ -23,8 +25,9 @@ static NSString * const kBaseURL = @"https://en.wikipedia.org/wiki/";
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.webView.delegate = self;
+	self.overlay.backgroundColor = [UIColor aai_backgroundColor];
 	
+	self.webView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,14 +42,16 @@ static NSString * const kBaseURL = @"https://en.wikipedia.org/wiki/";
 	NSURL *url = [NSURL URLWithString:[kBaseURL stringByAppendingString:[self.lookupTerm aai_underScoreString]]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	[self.webView loadRequest:request];
-	[MBProgressHUD showHUDAddedTo:self.view animated: YES];
+	NSString *pleaseWait = NSLocalizedString(@"Please wait", nil);
+	[[AAIActivityIndicatorManager sharedInstance] displayIndicatorInView:self.overlay withText:pleaseWait];
 }
 
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-	[MBProgressHUD hideHUDForView:self.view animated:YES];
+	[[AAIActivityIndicatorManager sharedInstance] dismisssIndicator];
+	self.overlay.alpha = 0;
 }
 
 @end

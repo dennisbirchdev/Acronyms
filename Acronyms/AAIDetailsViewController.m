@@ -11,6 +11,7 @@
 #import "AAIWikiMediaViewController.h"
 #import "NSString+AAIExtensions.h"
 #import "AAINetworkSessionManager.h"
+#import "UIColor+AAIExtensions.h"
 
 @interface AAIDetailsViewController ()
 
@@ -30,6 +31,8 @@ static NSString * const kWikipediaAPIBaseURL = @"https://en.wikipedia.org/";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+	self.view.backgroundColor = [UIColor aai_backgroundColor];
+	
 	[self checkWikipediaAvailability];
 	self.termLabel.text = [self.detailItem.longForm capitalizedStringWithLocale:[NSLocale systemLocale]];
 	self.frequencyLabel.text = [NSString stringWithFormat:@"%ld", self.detailItem.frequency];

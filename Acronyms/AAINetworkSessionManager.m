@@ -29,7 +29,7 @@ static NSString * const kAcronymServiceURI = @"http://www.nactem.ac.uk/software/
 	static AAINetworkSessionManager *sharedInstance;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		sharedInstance = [[AAINetworkSessionManager alloc] init];
+		sharedInstance = [self new];
 	});
 	
 	return sharedInstance;

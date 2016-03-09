@@ -9,8 +9,9 @@
 #import "AAIAcronymLookupViewController.h"
 #import "AAIDataManager.h"
 #import "AAIResultsTableViewController.h"
-#import "MBProgressHUD.h"
+#import "AAIActivityIndicatorManager.h"
 #import "AFNetworking.h"
+#import "UIColor+AAIExtensions.h"
 
 @interface AAIAcronymLookupViewController () <UITextFieldDelegate>
 
@@ -29,6 +30,8 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+
+	self.view.backgroundColor = [UIColor aai_backgroundColor];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(textFieldValueChanged:)
@@ -71,14 +74,15 @@ static NSString * const kDisplayResultsSegue = @"DisplayResultsSegue";
 
 - (IBAction)lookupButtonTapped:(id)sender
 {
-	[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+	NSString *pleaseWait = NSLocalizedString(@"Please wait", nil);
+	[[AAIActivityIndicatorManager sharedInstance] displayIndicatorInView:self.view withText:pleaseWait];
 	
 	[self.termField resignFirstResponder];
 	
 	__weak typeof(self) weakSelf = self;
 	
 	[AAIDataManager lookupEntry:self.termField.text completion:^(NSArray *results, NSError *error) {
-		[MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+		[[AAIActivityIndicatorManager sharedInstance] dismisssIndicator];
 		if (error != nil) {
 			NSLog(@"Error fetching term \"%@\": %@", weakSelf.termField.text, [error localizedDescription]);
 			// show error message to user

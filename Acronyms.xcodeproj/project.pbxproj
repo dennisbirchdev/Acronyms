@@ -28,6 +28,8 @@
 		954969711C8F67330094C0CB /* AAIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969701C8F67330094C0CB /* AAIDetailsViewController.m */; };
 		954969771C8F92390094C0CB /* AAIWikiMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969761C8F92390094C0CB /* AAIWikiMediaViewController.m */; };
 		95CD327F1C8FC16C00D9F9C9 /* NSString+AAIExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD327E1C8FC16C00D9F9C9 /* NSString+AAIExtensions.m */; };
+		95CD32831C90837800D9F9C9 /* AAIActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD32821C90837800D9F9C9 /* AAIActivityIndicatorManager.m */; };
+		95CD32871C908DA400D9F9C9 /* UIColor+AAIExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD32861C908DA400D9F9C9 /* UIColor+AAIExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,10 @@
 		954969761C8F92390094C0CB /* AAIWikiMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIWikiMediaViewController.m; sourceTree = "<group>"; };
 		95CD327D1C8FC16C00D9F9C9 /* NSString+AAIExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AAIExtensions.h"; sourceTree = "<group>"; };
 		95CD327E1C8FC16C00D9F9C9 /* NSString+AAIExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AAIExtensions.m"; sourceTree = "<group>"; };
+		95CD32811C90837800D9F9C9 /* AAIActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAIActivityIndicatorManager.h; sourceTree = "<group>"; };
+		95CD32821C90837800D9F9C9 /* AAIActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIActivityIndicatorManager.m; sourceTree = "<group>"; };
+		95CD32851C908DA400D9F9C9 /* UIColor+AAIExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AAIExtensions.h"; sourceTree = "<group>"; };
+		95CD32861C908DA400D9F9C9 /* UIColor+AAIExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AAIExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 				954969741C8F7CB30094C0CB /* ViewControllers */,
 				954969731C8F7CA20094C0CB /* Model & Services */,
 				954969721C8F7C8F0094C0CB /* Views */,
+				95CD32841C90838400D9F9C9 /* Controllers */,
 				95CD32801C8FC1F100D9F9C9 /* Class Extensions */,
 				954969431C8F376F0094C0CB /* ThirdParty */,
 				954969321C8F36EE0094C0CB /* Assets.xcassets */,
@@ -200,8 +207,19 @@
 			children = (
 				95CD327D1C8FC16C00D9F9C9 /* NSString+AAIExtensions.h */,
 				95CD327E1C8FC16C00D9F9C9 /* NSString+AAIExtensions.m */,
+				95CD32851C908DA400D9F9C9 /* UIColor+AAIExtensions.h */,
+				95CD32861C908DA400D9F9C9 /* UIColor+AAIExtensions.m */,
 			);
 			name = "Class Extensions";
+			sourceTree = "<group>";
+		};
+		95CD32841C90838400D9F9C9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				95CD32811C90837800D9F9C9 /* AAIActivityIndicatorManager.h */,
+				95CD32821C90837800D9F9C9 /* AAIActivityIndicatorManager.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +297,8 @@
 				9549695B1C8F376F0094C0CB /* AFURLResponseSerialization.m in Sources */,
 				954969551C8F376F0094C0CB /* AAIAppDelegate.m in Sources */,
 				954969601C8F381D0094C0CB /* AAIDataManager.m in Sources */,
+				95CD32831C90837800D9F9C9 /* AAIActivityIndicatorManager.m in Sources */,
+				95CD32871C908DA400D9F9C9 /* UIColor+AAIExtensions.m in Sources */,
 				954969561C8F376F0094C0CB /* AAINetworkSessionManager.m in Sources */,
 				954969711C8F67330094C0CB /* AAIDetailsViewController.m in Sources */,
 				954969631C8F48F10094C0CB /* AAIAcronymItem.m in Sources */,

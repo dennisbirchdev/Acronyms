@@ -42,7 +42,6 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="FE1-pU-Ewo" secondAttribute="centerX" id="2Cw-K9-2p5"/>
                             <constraint firstItem="FE1-pU-Ewo" firstAttribute="top" secondItem="AwV-J7-3cO" secondAttribute="bottom" constant="8" id="5ry-os-ibL"/>
@@ -167,7 +166,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="dm0-d4-3lv" secondAttribute="trailing" constant="8" id="1P2-CB-i4H"/>
                             <constraint firstItem="S9p-e9-j9P" firstAttribute="leading" secondItem="5bv-1g-oYf" secondAttribute="leadingMargin" constant="8" id="5vG-UZ-7EF"/>
@@ -216,18 +214,25 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="phH-ek-gMO">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6e-7F-QYV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="phH-ek-gMO" secondAttribute="trailing" id="DI2-S1-Yzn"/>
                             <constraint firstItem="phH-ek-gMO" firstAttribute="leading" secondItem="onM-RU-WRc" secondAttribute="leading" id="VcP-dV-eZk"/>
+                            <constraint firstAttribute="trailing" secondItem="m6e-7F-QYV" secondAttribute="trailing" id="bm9-oG-YrE"/>
+                            <constraint firstItem="m6e-7F-QYV" firstAttribute="top" secondItem="onM-RU-WRc" secondAttribute="top" id="gku-ml-5FB"/>
+                            <constraint firstItem="kKE-Gc-eoh" firstAttribute="top" secondItem="m6e-7F-QYV" secondAttribute="bottom" id="mWN-3W-IWK"/>
+                            <constraint firstItem="m6e-7F-QYV" firstAttribute="leading" secondItem="onM-RU-WRc" secondAttribute="leading" id="nTM-44-JWo"/>
                             <constraint firstItem="phH-ek-gMO" firstAttribute="top" secondItem="onM-RU-WRc" secondAttribute="top" id="pBQ-l8-CyK"/>
                             <constraint firstItem="kKE-Gc-eoh" firstAttribute="top" secondItem="phH-ek-gMO" secondAttribute="bottom" id="qgZ-2W-8x2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="overlay" destination="m6e-7F-QYV" id="HGm-MA-BU4"/>
                         <outlet property="webView" destination="phH-ek-gMO" id="pb7-2x-gbJ"/>
                     </connections>
                 </viewController>
