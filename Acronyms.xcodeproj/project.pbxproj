@@ -27,6 +27,7 @@
 		9549696B1C8F5D580094C0CB /* AAIResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9549696A1C8F5D580094C0CB /* AAIResultsTableViewController.m */; };
 		954969711C8F67330094C0CB /* AAIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969701C8F67330094C0CB /* AAIDetailsViewController.m */; };
 		954969771C8F92390094C0CB /* AAIWikiMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 954969761C8F92390094C0CB /* AAIWikiMediaViewController.m */; };
+		95CD327F1C8FC16C00D9F9C9 /* NSString+AAIExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CD327E1C8FC16C00D9F9C9 /* NSString+AAIExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		954969701C8F67330094C0CB /* AAIDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIDetailsViewController.m; sourceTree = "<group>"; };
 		954969751C8F92390094C0CB /* AAIWikiMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAIWikiMediaViewController.h; sourceTree = "<group>"; };
 		954969761C8F92390094C0CB /* AAIWikiMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAIWikiMediaViewController.m; sourceTree = "<group>"; };
+		95CD327D1C8FC16C00D9F9C9 /* NSString+AAIExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AAIExtensions.h"; sourceTree = "<group>"; };
+		95CD327E1C8FC16C00D9F9C9 /* NSString+AAIExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AAIExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 				954969741C8F7CB30094C0CB /* ViewControllers */,
 				954969731C8F7CA20094C0CB /* Model & Services */,
 				954969721C8F7C8F0094C0CB /* Views */,
+				95CD32801C8FC1F100D9F9C9 /* Class Extensions */,
 				954969431C8F376F0094C0CB /* ThirdParty */,
 				954969321C8F36EE0094C0CB /* Assets.xcassets */,
 				954969341C8F36EE0094C0CB /* LaunchScreen.storyboard */,
@@ -191,6 +195,15 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		95CD32801C8FC1F100D9F9C9 /* Class Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				95CD327D1C8FC16C00D9F9C9 /* NSString+AAIExtensions.h */,
+				95CD327E1C8FC16C00D9F9C9 /* NSString+AAIExtensions.m */,
+			);
+			name = "Class Extensions";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +284,7 @@
 				954969631C8F48F10094C0CB /* AAIAcronymItem.m in Sources */,
 				9549696B1C8F5D580094C0CB /* AAIResultsTableViewController.m in Sources */,
 				954969661C8F51870094C0CB /* AAIAcronymItemTableViewCell.m in Sources */,
+				95CD327F1C8FC16C00D9F9C9 /* NSString+AAIExtensions.m in Sources */,
 				9549695D1C8F376F0094C0CB /* MBProgressHUD.m in Sources */,
 				954969571C8F376F0094C0CB /* AFHTTPSessionManager.m in Sources */,
 				9549695C1C8F376F0094C0CB /* AFURLSessionManager.m in Sources */,
@@ -425,6 +439,7 @@
 				9549693C1C8F36EE0094C0CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

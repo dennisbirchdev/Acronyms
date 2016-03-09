@@ -8,6 +8,7 @@
 
 #import "AAIWikiMediaViewController.h"
 #import "MBProgressHUD.h"
+#import "NSString+AAIExtensions.h"
 
 @interface AAIWikiMediaViewController () <UIWebViewDelegate>
 
@@ -35,15 +36,10 @@ static NSString * const kBaseURL = @"https://en.wikipedia.org/wiki/";
 {
 	[super viewWillAppear:animated];
 	
-	NSURL *url = [NSURL URLWithString:[kBaseURL stringByAppendingString:[self underScoreString:self.lookupTerm]]];
+	NSURL *url = [NSURL URLWithString:[kBaseURL stringByAppendingString:[self.lookupTerm aai_underScoreString]]];
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	[self.webView loadRequest:request];
 	[MBProgressHUD showHUDAddedTo:self.view animated: YES];
-}
-
-- (NSString *)underScoreString:(NSString *)incomingString
-{
-	return [incomingString stringByReplacingOccurrencesOfString:@" " withString:@"_"];
 }
 
 #pragma mark - UIWebViewDelegate
