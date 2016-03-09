@@ -1,0 +1,3 @@
+#Acronyms#
+
+This is a simple iPhone app project that looks up the meaning of acronyms entered by the user, as specified in the document _assessmentv1-1.pdf_ at the base level of this repository. There are a couple of derivations due to the unavailability of AFNetworking 2.0 at this time. AFNetworking 3.0,x was used, which required using Xcode 7.x to build and run the app. In addition, a Wikipedia lookup function was added as a feature that seemed like it would be nice to have.
